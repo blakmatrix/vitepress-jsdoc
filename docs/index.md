@@ -18,7 +18,7 @@ hero:
     alt: vitepress-jsdoc logo
 
 features:
-  - icon: <img src="/vitepress.svg">
+  - icon: <img src="https://blakmatrix.github.io/vitepress-jsdoc/vitepress.svg">
     title: Seamless Integration with vitepress
     details: Seamlessly integrate JSDoc comments into your VitePress site. Our tool is purpose-built to harness the power of VitePress, ensuring rapid documentation generation without a hitch. Experience a unified development and documentation workflow like never before.
     link: "https://vitepress.dev/"
