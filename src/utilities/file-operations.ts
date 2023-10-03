@@ -1,15 +1,43 @@
 import fs from 'node:fs/promises';
 import {join} from 'node:path';
 import {mkdirp} from 'mkdirp';
-import {deleteAsync} from 'del';
-import {type ParseReturn, StatisticType} from '../interfaces';
+import {type ParseReturn, StatisticType, PathRemover} from '../interfaces';
+import { RimrafPathRemover } from '../classes/rimraf-path-remover';
 
-export const deleteDocsFolder = async (
-  docsFolder: string,
-  rmPattern: string[],
-) => {
-  return deleteAsync([`${docsFolder}/**/*`, ...rmPattern]);
+
+/**
+ * Deletes the specified documentation folder and any additional paths matching the provided patterns.
+ *
+ * @function
+ * @async
+ *
+ * @param {string} docsFolder - The path to the documentation folder to be deleted.
+ * @param {string[]} rmPattern - An array of glob patterns specifying additional paths to be deleted.
+ *
+ * @returns {Promise<string[]>} A promise that resolves with an array of paths that were deleted.
+ *
+ * @throws Will throw an error if not all paths were successfully deleted.
+ *
+ * @example
+ *
+ * const docsFolder = './docs';
+ * const rmPattern = ['**\/*.tmp']; // remove backslash
+ *
+ * const deletedPaths = await deleteDocsFolder(docsFolder, rmPattern);
+ */
+export const deleteDocsFolder = async (docsFolder: string, rmPattern: string[]): Promise<string[]> => {
+  const remover: PathRemover = new RimrafPathRemover();
+  const patterns = [docsFolder, ...rmPattern];
+
+  const allDeleted = await remover.delete(patterns);
+
+  if (!allDeleted) {
+      throw new Error("Not all paths were successfully deleted.");
+  }
+
+  return remover.getDeletedPaths();
 };
+
 
 export const createDocsFolder = (docsFolder: string) => {
   mkdirp.sync(docsFolder);
