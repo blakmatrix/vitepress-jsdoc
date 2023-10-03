@@ -4,7 +4,6 @@ node_modules
 coverage
 .vercel
 dist
-public
 docs/code
 docs/.vitepress/dist
 docs/.vitepress/cache
