@@ -1,0 +1,10 @@
+node_modules
+# for Jetbrains IDEA ides
+.idea
+coverage
+.vercel
+dist
+public
+docs/code
+docs/.vitepress/dist
+docs/.vitepress/cache
