@@ -1,6 +1,6 @@
 import path from 'node:path';
 import mm from 'micromatch';
-import {type FilterStrategy, type DirectoryEntity} from '../interfaces';
+import {type FilterStrategy, type DirectoryEntity} from '../interfaces.js';
 
 /**
  * Represents a filter strategy that determines the inclusion of directory entries

@@ -1,5 +1,5 @@
 import readline from 'node:readline';
-import {type ParseReturn, type FolderData} from '../interfaces';
+import {type ParseReturn, type FolderData} from '../interfaces.js';
 
 /**
  * Asynchronously prints the paths of files from the provided `FolderData` to the console.

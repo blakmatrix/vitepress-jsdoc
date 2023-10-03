@@ -1,9 +1,12 @@
 import fs from 'node:fs/promises';
 import {join} from 'node:path';
 import {mkdirp} from 'mkdirp';
-import {type ParseReturn, StatisticType, PathRemover} from '../interfaces';
-import { RimrafPathRemover } from '../classes/rimraf-path-remover';
-
+import {
+  type ParseReturn,
+  StatisticType,
+  type PathRemover,
+} from '../interfaces.js';
+import {RimrafPathRemover} from '../classes/rimraf-path-remover.js';
 
 /**
  * Deletes the specified documentation folder and any additional paths matching the provided patterns.
@@ -25,19 +28,21 @@ import { RimrafPathRemover } from '../classes/rimraf-path-remover';
  *
  * const deletedPaths = await deleteDocsFolder(docsFolder, rmPattern);
  */
-export const deleteDocsFolder = async (docsFolder: string, rmPattern: string[]): Promise<string[]> => {
+export const deleteDocsFolder = async (
+  docsFolder: string,
+  rmPattern: string[],
+): Promise<string[]> => {
   const remover: PathRemover = new RimrafPathRemover();
   const patterns = [docsFolder, ...rmPattern];
 
   const allDeleted = await remover.delete(patterns);
 
   if (!allDeleted) {
-      throw new Error("Not all paths were successfully deleted.");
+    throw new Error('Not all paths were successfully deleted.');
   }
 
   return remover.getDeletedPaths();
 };
-
 
 export const createDocsFolder = (docsFolder: string) => {
   mkdirp.sync(docsFolder);

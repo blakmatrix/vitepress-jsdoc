@@ -1,5 +1,5 @@
-import {type PluginOptions} from '../interfaces';
-import FileWatcher from './file-watcher';
+import {type PluginOptions} from '../interfaces.js';
+import FileWatcher from './file-watcher.js';
 
 /**
  * The `WatcherManager` class provides functionalities to watch files or directories

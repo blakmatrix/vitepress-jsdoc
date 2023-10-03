@@ -22,7 +22,7 @@ import {join} from 'node:path';
 export function resolveHandlebarsPath() {
   const cwd = process.cwd();
 
-  const handlebarsBasePath = join(cwd, 'dist', 'cjs', 'handlebars');
+  const handlebarsBasePath = join(cwd, 'dist', 'esm', 'handlebars');
 
   return {
     partialsPath: join(handlebarsBasePath, 'partials', '*.hbs'),

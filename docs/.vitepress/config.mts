@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 import { generateSidebar } from "vitepress-sidebar";
-import VitpressJsdocPlugin from "../../dist/mjs/index";
+import VitpressJsdocPlugin from "../../dist/esm/index";
 
 
 const getSideBar = (): any => {
@@ -56,11 +56,11 @@ export default defineConfig({
       
         VitpressJsdocPlugin({
           folder: "code",
-          source: "./dist/mjs/",
+          source: "./dist/esm/",
           dist: "./docs",
           title: "API",
-          partials: ["./dist/mjs/partials/*.hbs"],
-          helpers: ["./dist/mjs/helpers/*.js"],
+          partials: ["./dist/esm/partials/*.hbs"],
+          helpers: ["./dist/esm/helpers/*.js"],
           readme: "./README.md",
           exclude: "**/*.json,**/*.hbs,**/*.d.ts,**/*.map,**/interfaces.*",
         }),

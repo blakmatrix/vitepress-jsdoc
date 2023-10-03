@@ -5,9 +5,9 @@
  * ---
  */
 
-import {type Plugin} from 'vite';
-import {type PluginOptions} from './interfaces';
-import {printStats} from './utilities/output';
+// - import {type Plugin} from 'vite';
+import {type PluginOptions} from './interfaces.js';
+import {printStats} from './utilities/output.js';
 import {
   ArgumentParser,
   DocsFolderManager,
@@ -15,7 +15,7 @@ import {
   FileProcessor,
   ReadmeManager,
   WatcherManager,
-} from './classes';
+} from './classes/index.js';
 
 /**
  * ## Generate Markdown Files
@@ -87,19 +87,19 @@ export const generate = async (options: PluginOptions) => {
  *         partials: ["./dist/mjs/partials/*.hbs"],
  *         helpers: ["./dist/mjs/helpers/*.js"],
  *         readme: "./README.md",
- *         exclude: "**\/*.json,**\/*.hbs,**\/*.d.ts,**\/*.map,**\/interfaces.*",
+ *         exclude: "**\/*.json,**\/*.hbs,**\/*.d.js,**\/*.map,**\/interfaces.*",
  *       }),
  *     ],
  *   },
  * });
  * ```
  */
-const plugin = (options: PluginOptions): Plugin => {
+const plugin = (options: PluginOptions) /* : Plugin */ => {
   return {
     name: 'vitepress-jsdoc-plugin',
 
     // Hook for 'serve'
-    configureServer(server) {
+    configureServer(server: any) {
       // Call your watch function here
       options.watch = true;
       const watcher = new WatcherManager(options);

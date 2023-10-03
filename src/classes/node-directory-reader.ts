@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-import {type DirectoryReader, type DirectoryEntity} from '../interfaces';
+import {type DirectoryReader, type DirectoryEntity} from '../interfaces.js';
 
 /**
  * Represents a directory reader that leverages Node.js's file system module.

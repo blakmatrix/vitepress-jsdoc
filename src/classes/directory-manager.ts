@@ -1,5 +1,5 @@
-import {type DirectoryTreeListOptions} from '../interfaces';
-import {DirectoryTreeBuilder} from './directory-tree-builder';
+import {type DirectoryTreeListOptions} from '../interfaces.js';
+import {DirectoryTreeBuilder} from './directory-tree-builder.js';
 
 /**
  * Options for listing directory tree contents.

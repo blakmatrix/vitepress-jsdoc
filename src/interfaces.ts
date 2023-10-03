@@ -221,11 +221,10 @@ export type ParsedPluginOptions = {
  * @property {Function} delete - Deletes the specified paths and returns a boolean indicating success.
  * @property {Function} getDeletedPaths - Returns an array of paths that were deleted.
  */
-export interface PathRemover {
+export type PathRemover = {
   delete(paths: string[]): Promise<boolean>;
   getDeletedPaths(): string[];
-}
-
+};
 
 /**
  * Represents the types of statistics for parsed files.

@@ -1,10 +1,10 @@
-import {printFiles, printStats} from '../utilities/output';
-import {parseAndWriteFiles} from '../parsers/file';
+import {printFiles, printStats} from '../utilities/output.js';
+import {parseAndWriteFiles} from '../parsers/file.js';
 import {
   type PluginOptions,
   type FolderData,
   type ParseReturn,
-} from '../interfaces';
+} from '../interfaces.js';
 /**
  * Represents the plugin options provided to the application.
  * @typedef PluginOptions

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
-import {parsePluginOptions} from '../parsers/plugin-options';
-import {type PluginOptions} from '../interfaces';
+import {parsePluginOptions} from '../parsers/plugin-options.js';
+import {type PluginOptions} from '../interfaces.js';
 
 /**
  * Creates or updates the README file for the documentation. If a custom README file is provided,

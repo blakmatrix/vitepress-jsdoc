@@ -1,15 +1,15 @@
 import readline from 'node:readline';
 import chokidar from 'chokidar';
-import {parseDirectoryFile} from '../parsers/file';
+import {parseDirectoryFile} from '../parsers/file.js';
 import {
   type DirectoryFile,
   type PluginOptions,
   type ParsedPluginOptions,
-} from '../interfaces';
-import {parsePluginOptions} from '../parsers/plugin-options';
-import {writeContentToFile} from '../utilities/file-operations';
-import {createReadmeFile} from '../utilities/create-readme';
-import {DirectoryTreeBuilder} from './directory-tree-builder';
+} from '../interfaces.js';
+import {parsePluginOptions} from '../parsers/plugin-options.js';
+import {writeContentToFile} from '../utilities/file-operations.js';
+import {createReadmeFile} from '../utilities/create-readme.js';
+import {DirectoryTreeBuilder} from './directory-tree-builder.js';
 
 /**
  * The `FileWatcher` class provides functionalities to monitor files and directories

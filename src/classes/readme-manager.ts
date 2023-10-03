@@ -1,5 +1,5 @@
-import {createReadmeFile} from '../utilities/create-readme';
-import {ParseReturn, type PluginOptions} from '../interfaces';
+import {createReadmeFile} from '../utilities/create-readme.js';
+import {type PluginOptions} from '../interfaces.js';
 
 /**
  * The `ReadmeManager` class provides functionalities to manage the README file

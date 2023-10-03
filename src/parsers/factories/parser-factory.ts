@@ -1,6 +1,5 @@
-import {type Parser} from '../../interfaces';
-import {JsDocParser} from '../jsdoc';
-import {VueParser} from '../vue';
+import {type Parser} from '../../interfaces.js';
+import {JsDocParser} from '../jsdoc.js';
 
 /**
  * Factory object for creating parser instances based on file types.
@@ -11,7 +10,7 @@ export const parserFactory = {
   /**
    * Creates and returns a parser instance based on the provided file type.
    *
-   * @param {string} fileType - The type of the file (e.g., '.js', '.ts', '.vue').
+   * @param {string} fileType - The type of the file (e.g., '.js', '.js', '.vue').
    * @returns {Parser} - An instance of a parser corresponding to the file type.
    * @throws {Error} - Throws an error if the provided file type is unsupported.
    */
@@ -20,10 +19,6 @@ export const parserFactory = {
       case '.js':
       case '.ts': {
         return new JsDocParser();
-      }
-
-      case '.vue': {
-        return new VueParser();
       }
 
       default: {

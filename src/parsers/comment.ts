@@ -4,8 +4,13 @@
  * headline: Parse Vitepress Comment
  * ---
  */
-import fm from 'front-matter';
-import {type DirectoryFile} from '../interfaces';
+import fm, {type FrontMatterResult} from 'front-matter';
+import {type DirectoryFile} from '../interfaces.js';
+
+type VitepressAttributes = {
+  title?: string;
+  headline?: string;
+};
 
 /**
  * Parses the content of a file to search for a @vitepress comment block and extracts the frontmatter data.
@@ -15,7 +20,9 @@ import {type DirectoryFile} from '../interfaces';
  * @returns {object} - An object containing the extracted frontmatter data and attributes.
  * @throws {Error} - Returns an object with null values if parsing fails.
  */
-export const parseComment = (fileContent: string) => {
+export const parseComment = (
+  fileContent: string,
+): FrontMatterResult<VitepressAttributes> => {
   try {
     const allCommentBlocks = fileContent.match(
       /\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/g,
@@ -27,12 +34,14 @@ export const parseComment = (fileContent: string) => {
 
     if (!vitepressBlock) {
       return {
-        frontmatter: null,
-        attributes: null,
+        body: '',
+        bodyBegin: 0,
+        attributes: {},
       };
     }
 
-    return fm<Record<string, string>>(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    const parsed = (fm as any)(
       vitepressBlock
         .replaceAll('\n ', '\n')
         .replace('/*', '')
@@ -41,10 +50,25 @@ export const parseComment = (fileContent: string) => {
         .replaceAll(/\*\s?/g, '')
         .trim(),
     );
+
+    return parsed as FrontMatterResult<VitepressAttributes>;
+
+    /* The code `return fm<VitepressAttributes>(...)` is calling the `fm` function from the `front-matter`
+library to parse the frontmatter data from the `vitepressBlock`. */
+    // return fm<VitepressAttributes>(
+    //   vitepressBlock
+    //     .replaceAll('\n ', '\n')
+    //     .replace('/*', '')
+    //     .replace('*/', '')
+    //     .replaceAll('@vitepress', '')
+    //     .replaceAll(/\*\s?/g, '')
+    //     .trim(),
+    // );
   } catch {
     return {
-      frontmatter: null,
-      attributes: null,
+      body: '',
+      bodyBegin: 0,
+      attributes: {},
     };
   }
 };
@@ -61,7 +85,8 @@ export const parseVitepressFileHeader = (
   content: string,
   file: DirectoryFile,
 ) => {
-  const {frontmatter, attributes} = parseComment(content);
+  const {frontmatter, attributes}: FrontMatterResult<VitepressAttributes> =
+    parseComment(content);
 
   let fileContent = '---\n';
 

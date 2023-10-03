@@ -1,5 +1,5 @@
-import {type PluginOptions} from '../interfaces';
-import {parsePluginOptions} from '../parsers/plugin-options';
+import {type PluginOptions} from '../interfaces.js';
+import {parsePluginOptions} from '../parsers/plugin-options.js';
 
 /**
  * Represents the plugin options provided to the application.

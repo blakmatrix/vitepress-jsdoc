@@ -5,10 +5,14 @@ import {
   type DirectoryFile,
   type ParseReturn,
   type ParserConfig,
-} from '../interfaces';
-import {readFileContent} from '../utilities/file-reader';
-import {computePaths, getFileName, getFileFolder} from '../utilities/file-path';
-import {resolveHandlebarsPath} from '../utilities/handlebars';
+} from '../interfaces.js';
+import {readFileContent} from '../utilities/file-reader.js';
+import {
+  computePaths,
+  getFileName,
+  getFileFolder,
+} from '../utilities/file-path.js';
+import {resolveHandlebarsPath} from '../utilities/handlebars.js';
 
 /**
  * The JsDocParser class provides functionality to parse files

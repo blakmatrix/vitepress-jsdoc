@@ -1,4 +1,4 @@
-import {type PluginOptions, type ParsedPluginOptions} from '../interfaces';
+import {type PluginOptions, type ParsedPluginOptions} from '../interfaces.js';
 
 /**
  * Parses the provided plugin options

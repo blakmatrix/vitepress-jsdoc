@@ -1,8 +1,8 @@
 import {join} from 'node:path';
 import fs from 'node:fs/promises';
-import {type DirectoryFile} from '../interfaces';
-import {parseVitepressFileHeader} from '../parsers/comment';
-import {getFileName, getFileFolder} from './file-path';
+import {type DirectoryFile} from '../interfaces.js';
+import {parseVitepressFileHeader} from '../parsers/comment.js';
+import {getFileName, getFileFolder} from './file-path.js';
 
 /**
  * @file This module provides functionality to read the content of a file and parse its Vitepress header.

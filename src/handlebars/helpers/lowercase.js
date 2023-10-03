@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-module */
 const Handlebars = require('handlebars');
 
 Handlebars.registerHelper('lowercase', function (value) {

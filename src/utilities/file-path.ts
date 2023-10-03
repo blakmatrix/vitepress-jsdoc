@@ -1,5 +1,5 @@
 import {join} from 'node:path';
-import {type DirectoryFile, type ParserConfig} from '../interfaces';
+import {type DirectoryFile, type ParserConfig} from '../interfaces.js';
 
 /**
  * @file This module provides utility functions for handling file paths.

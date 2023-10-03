@@ -6,9 +6,9 @@ import {
   type DirectoryTreeListOptions,
   type FileTree,
   type FilterStrategy,
-} from '../interfaces';
-import {NodeDirectoryReader} from './node-directory-reader';
-import {PatternFilter} from './pattern-filter';
+} from '../interfaces.js';
+import {NodeDirectoryReader} from './node-directory-reader.js';
+import {PatternFilter} from './pattern-filter.js';
 
 /**
  * Represents a directory entity with basic information.

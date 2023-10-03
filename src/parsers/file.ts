@@ -4,10 +4,10 @@ import {
   type ParseReturn,
   type FolderData,
   type ParsePromiseResult,
-} from '../interfaces';
-import {writeContentToFile} from '../utilities/file-operations';
-import {parserFactory} from './factories/parser-factory';
-import {parsePluginOptions} from './plugin-options';
+} from '../interfaces.js';
+import {writeContentToFile} from '../utilities/file-operations.js';
+import {parserFactory} from './factories/parser-factory.js';
+import {parsePluginOptions} from './plugin-options.js';
 
 export const parseAndWriteFiles = async (
   lsFolder: FolderData,

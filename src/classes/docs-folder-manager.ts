@@ -1,4 +1,7 @@
-import {deleteDocsFolder, createDocsFolder} from '../utilities/file-operations';
+import {
+  deleteDocsFolder,
+  createDocsFolder,
+} from '../utilities/file-operations.js';
 
 /**
  * The `DocsFolderManager` class provides functionalities to manage the documentation
