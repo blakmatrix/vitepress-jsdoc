@@ -29,6 +29,7 @@ const getSideBar = (): any => {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "vitepress-jsdoc",
+  base: "vitepress-jsdoc",
   description: "vitepress-jsdoc description",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
