@@ -1,0 +1,10 @@
+{
+    "prettier": true,
+    "space": 2,
+    "rules": {
+
+      "import/extensions": "off",
+      "n/prefer-global/process": "off"
+      
+    }
+  }
