@@ -77,6 +77,7 @@
       ".": "./src/index.ts"
     }
   },
+  "bin": "./dist/esm/bin.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
