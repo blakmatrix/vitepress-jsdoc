@@ -107,9 +107,9 @@ const plugin = (options: PluginOptions) /* : Plugin */ => {
     },
 
     // Hook for 'build'
-    async buildStart() {
-      await generate(options);
-    },
+    // async buildStart() {
+    //   await generate(options);
+    // },
   };
 };
 
