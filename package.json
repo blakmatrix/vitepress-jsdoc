@@ -47,7 +47,7 @@
   "license": "MIT",
   "author": "Farrin Reid <blakmatrix@gmail.com>",
   "repository": {
-    "url": "https://github.com/blakmatrix/vitepress-jsdoc.git",
+    "url": "git+https://github.com/blakmatrix/vitepress-jsdoc.git",
     "type": "git"
   },
   "devDependencies": {
@@ -59,7 +59,8 @@
     "vite": "^4.4.9",
     "vitepress": "^1.0.0-rc.20",
     "vitepress-sidebar": "^1.18.0",
-    "vue-docgen-cli": "^4.67.0"
+    "vue-docgen-cli": "^4.67.0",
+    "xo": "^0.56.0"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
@@ -68,8 +69,7 @@
     "jsdoc-to-markdown": "^8.0.0",
     "micromatch": "^4.0.5",
     "mkdirp": "^3.0.1",
-    "rimraf": "^5.0.5",
-    "xo": "^0.56.0"
+    "rimraf": "^5.0.5"
   },
   "tshy": {
     "exports": {
@@ -77,7 +77,9 @@
       ".": "./src/index.ts"
     }
   },
-  "bin": "./dist/esm/bin.js",
+  "bin": {
+    "vitepress-jsdoc": "dist/esm/bin.js"
+  },
   "exports": {
     "./package.json": "./package.json",
     ".": {
