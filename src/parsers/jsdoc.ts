@@ -12,7 +12,6 @@ import {
   getFileName,
   getFileFolder,
 } from '../utilities/file-path.js';
-import {resolveHandlebarsPath} from '../utilities/handlebars.js';
 
 /**
  * The JsDocParser class provides functionality to parse files
@@ -93,18 +92,11 @@ export class JsDocParser implements Parser {
     partialsPath: string[];
     helpersPath: string[];
   } {
-    const {partialsPath: defaultPartialsPath, helpersPath: defaultHelpersPath} =
-      resolveHandlebarsPath();
-
     return {
       partialsPath:
-        config.partials && config.partials.length > 0
-          ? config.partials
-          : [defaultPartialsPath],
+        config.partials && config.partials.length > 0 ? config.partials : [],
       helpersPath:
-        config.helpers && config.helpers.length > 0
-          ? config.helpers
-          : [defaultHelpersPath],
+        config.helpers && config.helpers.length > 0 ? config.helpers : [],
     };
   }
 

@@ -50,10 +50,3 @@ function copyFiles(sourceDir, targetDir) {
 const binPath = './dist/esm/bin.js';
 setExecutePermissions(binPath);
 
-// Copy handlebars files
-const sourceHandlebarsPath = './src/handlebars';
-const targetHandlebarsCjsPath = './dist/commonjs/handlebars';
-const targetHandlebarsMjsPath = './dist/esm/handlebars';
-
-copyFiles(sourceHandlebarsPath, targetHandlebarsCjsPath);
-copyFiles(sourceHandlebarsPath, targetHandlebarsMjsPath);
