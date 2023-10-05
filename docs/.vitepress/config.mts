@@ -30,7 +30,7 @@ const getSideBar = (): any => {
 export default defineConfig({
   title: "vitepress-jsdoc",
   base: "/vitepress-jsdoc/",
-  description: "vitepress-jsdoc description",
+  description: "vitepress-jsdoc - JSDoc Meets VitePress: Rapid Doc Generation.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
