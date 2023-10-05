@@ -1,13 +1,13 @@
 ---
-order: 3
+order: 5
 ---
-# Integrating the `vitepress-jsdoc` Plugin
+# Integrating the `vitepress-jsdoc` Plugin (Beta)
 
 Once Vitepress is set up, we'll delve into integrating the `vitepress-jsdoc` plugin, enhancing your documentation generation capabilities.
 
 ## Plugin Mode Integration
 
-For a seamless integration into Vitepress, it's recommended to use the plugin mode. This mode allows you to harness the full power of `vitepress-jsdoc` within your Vitepress project.
+For a seamless integration into Vitepress, it's recommended to use the plugin mode. This mode allows you to harness the full power of `vitepress-jsdoc` within your Vitepress project. (** Note: you will have problems building production docs atm, [please use these](/code/README.html#prebuild-and-build-steps) to build you production docs**)
 
 Here's an example configuration to integrate `vitepress-jsdoc`:
 

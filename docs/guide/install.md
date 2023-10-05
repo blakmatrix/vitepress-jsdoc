@@ -14,7 +14,7 @@ Before you begin, ensure you have the following installed:
 
 To install `vitepress-jsdoc` for development, use the npm command:
 
-```bash
+```shell
 npm install -D vitepress-jsdoc
 ```
 

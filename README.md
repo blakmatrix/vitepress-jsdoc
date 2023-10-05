@@ -42,16 +42,65 @@ A journey of a thousand miles starts under one's feet. -Lao Tzu")](https://blakm
 
 **Read the full documentation at [blakmatrix.github.io/vitepress-jsdoc/](https://blakmatrix.github.io/vitepress-jsdoc/)**
 
+
 ## Install
 
-```bash
+```shell
 npm install -D vitepress-jsdoc
 ```
 
+## Primary Usage: Command Line Tool
 
-## Plugin Mode
+The main usage of `vitepress-jsdoc` is as a command line tool. Here's a generic command line example:
 
-For integration into Vitepress, the plugin mode is recommended:
+```shell
+    npx vitepress-jsdoc --source path/to/src --dist ./docs --folder code --title API
+```
+
+*Note: You will probably want to grab the handlbar partial and helpers from this project*
+
+### Prebuild and Build Steps
+
+To ensure your documentation is up-to-date, consider adding a prebuild step using the following command:
+
+```shell
+vitepress-jsdoc --source path/to/src --dist ./docs --folder code  --readme path/to/README.md --exclude="**/*.json,**/*.hbs,**/*.d.ts,**/*.map,**/interfaces.*" --partials=path/to/handlebars/partials/*.hbs --helpers=path/to/handlebars/helpers/*.hbs
+```
+
+After the prebuild, you can build your documentation with:
+
+```shell
+vitepress build docs
+```
+
+For development purposes, you can utilize `npx concurrently` to run both the Vitepress development server and the watch mode of `vitepress-jsdoc`:
+
+```shell
+npx concurrently "vitepress dev docs" "vitepress-jsdoc --source path/to/src ... -watch"
+```
+
+Here's a partial package.json script to illustrate:
+
+```json
+{
+  "scripts": {
+    "prebuild": "vitepress-jsdoc --source path/to/dist/esm --dist ./docs --folder code  --readme path/to/README.md --exclude=\"**/*.json,**/*.hbs,**/*.d.ts,**/*.map,**/interfaces.*\" --partials=path/to/handlebars/partials/*.hbs --helpers=path/to/handlebars/helpers/*.hbs",
+    "build": "vitepress build docs",
+    // OR (using vitepress' default commands 
+    // - you might take `prebuild` above and rewrite it to `docs:preview`)
+    "docs:build": "npm run prebuild && vitepress build docs",
+    "docs:dev": "npx concurrently \"vitepress dev docs\" \"vitepress-jsdoc --source path/to/src ... -watch\""
+  }
+}
+```
+
+This package.json script provides both the prebuild and build steps combined in the docs:build command using the && approach. The docs:dev command runs both the Vitepress development server and the watch mode of vitepress-jsdoc concurrently.
+
+## Plugin Mode (Beta)
+
+While `vitepress-jsdoc` can be integrated as a plugin into Vitepress, please note that this mode is currently in beta. During development, the module will function as expected. However, due to certain technical challenges in integrating with the default Vitepress transforms for markdown files, there might be limitations in this mode.
+
+For integration into Vitepress, the module mode is recommended:
 
 ```typescript
 // Example Vitepress Configuration
@@ -80,12 +129,6 @@ export default defineConfig({
 ## Live Example
 
 This entire project serves as a live example. You can view it [here](https://blakmatrix.github.io/vitepress-jsdoc/) or browse the files directly on [GitHub](https://github.com/blakmatrix/vitepress-jsdoc).
-
-## Command Line Example
-
-```bash
-npx vitepress-jsdoc --source ./src --dist ./docs --folder code --title API
-```
 
 ## Vitepress Configuration
 
