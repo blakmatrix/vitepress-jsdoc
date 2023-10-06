@@ -27,8 +27,7 @@ import {getFileName, getFileFolder} from './file-path.js';
  */
 export const readFileContent = async (file: DirectoryFile): Promise<string> => {
   try {
-    const fileName = getFileName(file);
-    const filePath = `${join(getFileFolder(file), fileName + file.ext)}`;
+    const filePath = file.path;
 
     const content = await fs.readFile(filePath, 'utf8');
 

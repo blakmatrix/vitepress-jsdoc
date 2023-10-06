@@ -11,12 +11,12 @@ import {parsePluginOptions} from './plugin-options.js';
 
 export const parseAndWriteFiles = async (
   lsFolder: FolderData,
-  opti: PluginOptions,
+  options: PluginOptions,
 ): Promise<ParsePromiseResult[]> => {
   const folderData = lsFolder;
 
   const parsePromises = folderData.paths.map(async (file) => {
-    const data = await parseDirectoryFile(file, opti);
+    const data = await parseDirectoryFile(file, options);
     if (data?.relativePathDest) {
       return writeContentToFile(data, data.relativePathDest);
     }
@@ -31,16 +31,16 @@ export const parseAndWriteFiles = async (
  * Parses the content of a directory file based on its extension and configuration.
  *
  * @param {DirectoryFile} file - The file object representing the directory file to be parsed.
- * @param {PluginOptions} opti - The plugin options providing configuration for the parsing.
+ * @param {PluginOptions} options - The plugin options providing configuration for the parsing.
  *
  * @returns {Promise<object|undefined>} A promise that resolves with the parsed content of the file, or undefined if the file is a directory or has no associated parser.
  */
 export const parseDirectoryFile = async (
   file: DirectoryFile,
-  opti: PluginOptions,
+  options: PluginOptions,
 ): Promise<ParseReturn | undefined> => {
   const {srcFolder, docsFolder, jsDocConfigPath, partials, helpers} =
-    parsePluginOptions(opti);
+    parsePluginOptions(options);
 
   if (!file.isDir && file.folder) {
     const parser = parserFactory.createParser(file.ext ?? '');

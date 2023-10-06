@@ -148,9 +148,8 @@ export class DirectoryTreeBuilder {
     const filePath = path.join(srcPath, dirent.name);
     const isDir = dirent.isDirectory();
     const ext = path.extname(filePath);
-    let name = path.basename(filePath).replace(ext, '');
-    const folder = filePath.replace(name, '').replace(ext, '');
-
+    let name = path.basename(filePath, ext);
+    const folder = path.dirname(filePath);
     if (name === 'index') {
       name = '__index__';
     }
